@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class InsManager : Singleton<InsManager>
 {
+    [SerializeReference] PressHandler pressHandler;
     [SerializeReference] PlayerLineOfSight playerLineOfSight;
     [SerializeReference] Player player;
-    [SerializeReference] Transform destination;
+    [SerializeReference] Level level;
 
+    public PressHandler PressHandler { get => pressHandler; set => pressHandler = value; }
     public PlayerLineOfSight PlayerLineOfSight { get => playerLineOfSight; set => playerLineOfSight = value; }
     public Player Player { get => player; set => player = value; }
-    public Transform Destination { get => destination; set => destination = value; }
+    public Level Level { get => level; set => level = value; }
 }

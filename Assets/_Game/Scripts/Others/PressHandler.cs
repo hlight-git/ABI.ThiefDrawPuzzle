@@ -67,9 +67,10 @@ public class PressToDrawState : ABSPressState
     protected override void OnRelease()
     {
         isPressing = false;
-        if (IsNear(unit.LastLinePoint, InsManager.Ins.Destination.position))
+        if (IsNear(unit.LastLinePoint, InsManager.Ins.Level.Destination))
         {
             InsManager.Ins.Player.SetPath(unit.LinePoints);
+            GameManager.Ins.ChangeState(GameState.Moving);
             unit.ChangeState(unit.PressToMoveState);
         }
         else

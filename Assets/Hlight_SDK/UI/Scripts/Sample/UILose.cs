@@ -9,7 +9,7 @@ public class UILose : UICanvas
 
     public void MainMenuButton()
     {
-        UIManager.Ins.OpenUI<UIMainMenu>();
         Close(0);
+        GameManager.Ins.OpenMainMenu();
     }
 }

@@ -70,7 +70,7 @@ public class GuardSight : GameUnit
     }
     void OnRaycastHit(RaycastHit hit)
     {
-        if (hit.collider.CompareTag(Constant.Tag.PLAYER) && !InsManager.Ins.Player.IsDisguising)
+        if (hit.collider.CompareTag(Constant.Tag.PLAYER) && GameManager.Ins.IsPlaying && !InsManager.Ins.Player.IsDisguising)
         {
             guard.OnSawThief();
         }

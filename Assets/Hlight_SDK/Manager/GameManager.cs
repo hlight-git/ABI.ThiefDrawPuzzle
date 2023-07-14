@@ -21,12 +21,8 @@ public class GameManager : Singleton<GameManager>
         GameSetup();
         LoadData();
 
+        OpenMainMenu();
         ChangeState(GameState.MainMenu);
-
-        if (openUIWhenPlay)
-        {
-            UIManager.Ins.OpenUI<UIMainMenu>();
-        }
     }
 
     void GameSetup()
@@ -46,7 +42,14 @@ public class GameManager : Singleton<GameManager>
     {
         //csv.OnInit();
     }
-
+    public void OpenMainMenu()
+    {
+        if (openUIWhenPlay)
+        {
+            UIManager.Ins.OpenUI<UIMainMenu>();
+        }
+        LevelManager.Ins.LoadCurrentLevel();
+    }
     public void ChangeState(GameState state)
     {
         if ((int) state < 3)

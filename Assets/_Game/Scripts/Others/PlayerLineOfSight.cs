@@ -47,13 +47,13 @@ public class PlayerLineOfSight : MonoBehaviour
         curState = state;
         targetOffset = statePositions[(int)state].localPosition;
         targetRotate = statePositions[(int)state].localRotation;
-        if (curState == State.MainMenu)
-        {
-            Transform playerTF = InsManager.Ins.Player.TF;
-            targetOffset = playerTF.position + targetOffset.y * Vector3.up + targetOffset.z * playerTF.forward;
-            targetRotate.eulerAngles += playerTF.rotation.eulerAngles;
-            //TF.LookAt(InsManager.Ins.Player.TF);
-            //targetOffset = TF.rotation.eulerAngles;
-        }
+        //if (curState == State.MainMenu)
+        //{
+        //    Transform playerTF = InsManager.Ins.Player.TF;
+        //    targetOffset = playerTF.position + targetOffset.y * Vector3.up + targetOffset.z * Vector3.forward;
+        //    targetRotate.eulerAngles += playerTF.rotation.eulerAngles;
+        //    //TF.LookAt(InsManager.Ins.Player.TF);
+        //    //targetOffset = TF.rotation.eulerAngles;
+        //}
     }
 }

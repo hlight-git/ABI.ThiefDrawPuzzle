@@ -31,8 +31,11 @@ public class GuardCam : GameUnit, IGuard
     }
     public void OnSawThief()
     {
-        rotateTween.Pause();
-        InsManager.Ins.Player.OnCaught();
-        LevelManager.Ins.OnLose();
+        if (GameManager.Ins.IsPlaying)
+        {
+            rotateTween.Pause();
+            InsManager.Ins.Player.OnCaught();
+            LevelManager.Ins.OnLose();
+        }
     }
 }

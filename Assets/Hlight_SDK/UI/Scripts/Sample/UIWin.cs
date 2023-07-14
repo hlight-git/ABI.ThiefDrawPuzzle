@@ -6,7 +6,8 @@ public class UIWin : UICanvas
 
     public void MainMenuButton()
     {
-        UIManager.Ins.OpenUI<UIMainMenu>();
+        //UIManager.Ins.OpenUI<UIMainMenu>();
+        GameManager.Ins.OpenMainMenu();
         Close(0);
     }
 }
