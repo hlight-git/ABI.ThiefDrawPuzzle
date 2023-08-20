@@ -1,12 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaiterCache
+public class Wait
 {
     public static readonly WaitForEndOfFrame WaitForEndOfFrame = new WaitForEndOfFrame();
     public static readonly WaitForFixedUpdate WaitForFixedUpdate = new WaitForFixedUpdate();
-    public static readonly WaitForSeconds WaitFor100ms = new WaitForSeconds(0.1f);
-    public static readonly WaitForSeconds WaitForSec = new WaitForSeconds(1f);
+
+    static readonly Dictionary<float, WaitForSeconds> cacheDict = new Dictionary<float, WaitForSeconds>();
+    public static WaitForSeconds ForSec(float key)
+    {
+        if (!cacheDict.ContainsKey(key))
+        {
+            cacheDict.Add(key, new WaitForSeconds(key));
+        }
+        return cacheDict[key];
+    }
 }
 public class ComponentCache<TValue>
 {

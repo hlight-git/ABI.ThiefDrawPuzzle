@@ -1,1 +1,1 @@
-public class CollectableItemCache : ComponentCache<CollectableItem> { }
+public class CollectItemCache : ComponentCache<ABSCollectItem> { }

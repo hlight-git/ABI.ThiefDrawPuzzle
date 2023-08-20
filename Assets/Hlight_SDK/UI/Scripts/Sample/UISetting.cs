@@ -7,5 +7,6 @@ public class UISetting : UICanvas
     public void ContinueButton()
     {
         Close(0);
+        UIManager.Ins.OpenUI<UIGamePlay>();
     }
 }

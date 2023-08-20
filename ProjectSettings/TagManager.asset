@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - CollectableItem
+  - Cat
+  - Floor
+  - Obstacle
+  - Destination
+  - ShootableDecoration
+  - BulletPortal
   layers:
   - Default
   - TransparentFX
@@ -12,9 +18,9 @@ TagManager:
   - 
   - Water
   - UI
-  - Floor
-  - 
-  - 
+  - CatchRay
+  - Cats
+  - CatchRayOfCat
   - 
   - 
   - 

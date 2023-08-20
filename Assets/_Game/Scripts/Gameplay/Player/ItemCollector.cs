@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class ItemCollector : GameUnit
 {
-    [SerializeReference] ThiefBackpack backpack;
+    [SerializeReference] Cat cat;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(Constant.Tag.COLLECTABLE_ITEM))
+        if (other.CompareTag(Const.Tag.COLLECTABLE_ITEM))
         {
-            CollectableItem item = CollectableItemCache.Get(other);
-            item.OnBeCollected(TF);
-            backpack.Collect(item);
+            ABSCollectItem item = CollectItemCache.Get(other);
+            item.OnBeCollected(cat);
         }
     }
 }

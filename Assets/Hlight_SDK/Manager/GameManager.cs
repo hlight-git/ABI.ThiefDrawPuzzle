@@ -1,30 +1,31 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 public enum GameState
 {
-    MainMenu = 0,
-    Drawing = 1,
-    Moving = 2,
+    Gameplay = 0,
+    Setting = 1,
+    Win = 2,
     Lose = 3,
-    Win = 4,
 }
 
 public class GameManager : Singleton<GameManager>
 {
-    //[SerializeField] UserData userData;
-    //[SerializeField] CSVData csv;
-    private static GameState gameState;
-    public bool openUIWhenPlay;
+    [SerializeField] bool loadUserDataWhenPlay;
 
-    protected void Awake()
+    GameState gameState;
+    void Awake()
     {
         GameSetup();
         LoadData();
-
-        OpenMainMenu();
-        ChangeState(GameState.MainMenu);
     }
-
+    void Start()
+    {
+        ChangeState(GameState.Gameplay);
+    }
     void GameSetup()
     {
         Input.multiTouchEnabled = false;
@@ -40,25 +41,51 @@ public class GameManager : Singleton<GameManager>
     }
     void LoadData()
     {
-        //csv.OnInit();
-    }
-    public void OpenMainMenu()
-    {
-        if (openUIWhenPlay)
+        if (!loadUserDataWhenPlay)
         {
-            UIManager.Ins.OpenUI<UIMainMenu>();
+            return;
         }
-        LevelManager.Ins.LoadCurrentLevel();
     }
-    public void ChangeState(GameState state)
+    void OnChangeToGameplayState(bool isTemporary)
     {
-        if ((int) state < 3)
+        UIManager.Ins.OpenUI<UIGamePlay>();
+        if (!isTemporary)
         {
-            InsManager.Ins.PlayerLineOfSight.ChangeState((PlayerLineOfSight.State)state);
+            LevelManager.Ins.LoadCurrentLevel();
         }
-        gameState = state;
+    }
+
+    void OnChangeToSettingState(bool isTemporary)
+    {
+        UIManager.Ins.CloseUI<UIGamePlay>();
+        UIManager.Ins.OpenUI<UISetting>();
+    }
+
+    IEnumerator OnChangeToWinState(bool isTemporary)
+    {
+        UIManager.Ins.CloseUI<UIGamePlay>();
+        yield return Wait.ForSec(1);
+        UIManager.Ins.OpenUI<UIWin>();
+    }
+
+    IEnumerator OnChangeToLoseState(bool isTemporary)
+    {
+        UIManager.Ins.CloseUI<UIGamePlay>();
+        yield return Wait.ForSec(1);
+        UIManager.Ins.OpenUI<UILose>();
     }
 
     public bool IsState(GameState state) => gameState == state;
-    public bool IsPlaying => IsState(GameState.Drawing) || IsState(GameState.Moving);
+    public bool IsPlaying => IsState(GameState.Gameplay);
+    public void ChangeState(GameState state, bool isTemporary = false)
+    {
+        gameState = state;
+        switch (gameState)
+        {
+            case GameState.Gameplay: OnChangeToGameplayState(isTemporary); break;
+            case GameState.Setting: OnChangeToSettingState(isTemporary); break;
+            case GameState.Win: StartCoroutine(OnChangeToWinState(isTemporary)); break;
+            case GameState.Lose: StartCoroutine(OnChangeToLoseState(isTemporary)); break;
+        }
+    }
 }

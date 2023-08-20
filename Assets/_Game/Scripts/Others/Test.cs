@@ -1,31 +1,34 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Test : MonoBehaviour
 {
-    public Transform[] pos;
-    Tween tween;
-    public Vector3[] GetPath => pos.Select(tf => tf.position).ToArray();
-
     private void Start()
     {
-        tween = transform.DOPath(GetPath, 3).SetLoops(-1, LoopType.Yoyo).SetSpeedBased(true).SetEase(Ease.Linear)
-            .OnWaypointChange(OnWayPointChange);
+        Vector3 x = Vector3.zero;
+        T(x);
+        print(x);
     }
 
-    void OnWayPointChange(int i)
+    private void Update()
     {
-        if (i == 0 || i == pos.Length - 1)
+        if (Input.GetMouseButtonDown(0))
         {
-            tween.Pause();
-            Invoke(nameof(Play), 1f);
+            //Vector3 vector3 = (Camera.main.ScreenPointToRay(Input.mousePosition).direction);
+            //if (Physics.Raycast(Camera.main.transform.position, vector3, out RaycastHit hit, 100f))
+            //{
+            //    print(hit.collider.gameObject.name);
+            //}
+            print(MainCamera.Ins.Raycast(Util.LayerOf(Const.Layer.CATCH_RAY))?.point);
         }
     }
-    void Play()
+    void T(Vector3 t)
     {
-        tween.Play();
+        t += Vector3.one;
     }
 }

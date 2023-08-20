@@ -1,16 +1,20 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GuardSight : GameUnit
 {
-    [SerializeReference] Transform guardTF;
     [SerializeReference] MeshFilter meshFilter;
-    [SerializeField] float visionRange;
-    [SerializeField] float visionAngle;
+    [SerializeField] bool rotateWhenGuardIdle;
+    [SerializeReference, ShowIf("rotateWhenGuardIdle")] Transform rotateBaseTF;
 
-    readonly int visionConeResolution = 10;
+    int triangleCount = Const.GUARD_SIGHT_RESOLUTION - 1;
     IGuard guard;
+    float visionRange;
+    float visionAngle;
+    int[] triangles;
+
 
     public LayerMask VisionObstructingLayer;
 
@@ -18,61 +22,70 @@ public class GuardSight : GameUnit
     void Awake()
     {
         visionConeMesh = new Mesh();
-        visionAngle *= Mathf.Deg2Rad;
-        guard = guardTF.GetComponent<IGuard>();
-    }
 
-
-    void Update()
-    {
-        DrawVisionCone();
-    }
-
-    void DrawVisionCone()
-    {
-        int[] triangles = new int[(visionConeResolution - 1) * 3];
-        Vector3[] Vertices = new Vector3[visionConeResolution + 1];
-        Vertices[0] = Vector3.zero;
-        float Currentangle = -visionAngle / 2;
-        float angleIcrement = visionAngle / (visionConeResolution - 1);
-        float Sine;
-        float Cosine;
-
-        for (int i = 0; i < visionConeResolution; i++)
-        {
-            Sine = Mathf.Sin(Currentangle);
-            Cosine = Mathf.Cos(Currentangle);
-            Vector3 RaycastDirection = (transform.forward * Cosine) + (transform.right * Sine);
-            Vector3 VertForward = (Vector3.forward * Cosine) + (Vector3.right * Sine);
-            if (Physics.Raycast(transform.position, RaycastDirection, out RaycastHit hit, visionRange, VisionObstructingLayer))
-            {
-                Vertices[i + 1] = VertForward * hit.distance;
-                OnRaycastHit(hit);
-            }
-            else
-            {
-                Vertices[i + 1] = VertForward * visionRange;
-            }
-
-
-            Currentangle += angleIcrement;
-        }
+        triangles = new int[triangleCount * 3];
         for (int i = 0, j = 0; i < triangles.Length; i += 3, j++)
         {
             triangles[i] = 0;
             triangles[i + 1] = j + 1;
             triangles[i + 2] = j + 2;
         }
+    }
+    public void OnInit(IGuard guard)
+    {
+        this.guard = guard;
+        visionRange = guard.VisionRange;
+        visionAngle = guard.VisionAngle * Mathf.Deg2Rad;
+    }
+
+    void Update()
+    {
+        DrawVisionCone();
+        if (rotateWhenGuardIdle)
+        {
+            TF.rotation = Quaternion.Euler(0, rotateBaseTF.rotation.eulerAngles.y, 0);
+        }
+    }
+    void DrawVisionCone()
+    {
+        Vector3[] vertices = new Vector3[Const.GUARD_SIGHT_RESOLUTION + 1];
+        vertices[0] = Vector3.zero;
+        float curAngle = -visionAngle / 2;
+        float angleInc = visionAngle / triangleCount;
+        float sine;
+        float cosine;
+
+        for (int i = 0; i < Const.GUARD_SIGHT_RESOLUTION; i++, curAngle += angleInc)
+        {
+            sine = Mathf.Sin(curAngle);
+            cosine = Mathf.Cos(curAngle);
+            Vector3 raycastDir = (TF.forward * cosine) + (TF.right * sine);
+            Vector3 vertForward = (Vector3.forward * cosine) + (Vector3.right * sine);
+            if (Physics.Raycast(TF.position, raycastDir, out RaycastHit hit, visionRange, VisionObstructingLayer))
+            {
+                vertices[i + 1] = vertForward * hit.distance;
+                OnRaycastHit(hit);
+            }
+            else
+            {
+                vertices[i + 1] = vertForward * visionRange;
+            }
+        }
         visionConeMesh.Clear();
-        visionConeMesh.vertices = Vertices;
+        visionConeMesh.vertices = vertices;
         visionConeMesh.triangles = triangles;
         meshFilter.mesh = visionConeMesh;
     }
     void OnRaycastHit(RaycastHit hit)
     {
-        if (hit.collider.CompareTag(Constant.Tag.PLAYER) && GameManager.Ins.IsPlaying && !InsManager.Ins.Player.IsDisguising)
+        if (hit.collider.CompareTag(Const.Tag.CAT))
         {
-            guard.OnSawThief();
+            Cat cat = hit.collider.GetComponent<Cat>();
+            guard.OnSawCat(cat);
+            //if (cat.IsMoving)
+            //{
+            //    guard.OnSawCat(cat);
+            //}
         }
     }
 }

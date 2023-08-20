@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEditor;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor.Animations;
+#endif
 
 [CreateAssetMenu(fileName = "AnyStateAnimSet", menuName = "Scriptable Objects/AnyStateAnimSet")]
 public class AnyStateAnimSet : ScriptableObject
@@ -11,9 +14,9 @@ public class AnyStateAnimSet : ScriptableObject
     const int TRANSITION_CONDITION_INDEX = 0;
     const string CONST_STRING_PREFIX = "public const string ";
     const string CONST_FLOAT_PREFIX = "public const float ";
-    [SerializeField] AnimatorController controller;
     [SerializeField] List<AnyStateAnim> animSet;
 #if UNITY_EDITOR
+    [SerializeField] AnimatorController controller;
     [SerializeField, TextArea] string EnumValues;
     [SerializeField, TextArea] string ConstantValues;
 #endif
@@ -21,6 +24,7 @@ public class AnyStateAnimSet : ScriptableObject
     {
         return animSet[(int)(object)animType];
     }
+#if UNITY_EDITOR
     public void LoadResources()
     {
         animSet = new List<AnyStateAnim>();
@@ -52,6 +56,7 @@ public class AnyStateAnimSet : ScriptableObject
             ConstantValues += "\n" + CONST_FLOAT_PREFIX + animSet[i].trigger.ToUpper() + "_DURATION = " + animSet[i].duration.ToString("0.###") + "f;";
         }
     }
+#endif
 }
 
 [System.Serializable]

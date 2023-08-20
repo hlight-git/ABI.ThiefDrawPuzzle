@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ABSStateMachine<SelfT>: GameUnit where SelfT : ABSStateMachine<SelfT>
+public abstract class ABSStateMachine<SelfT>: PoolUnit where SelfT : ABSStateMachine<SelfT>
 {
     [Header("State Machine:")]
     public string currentStateLog;

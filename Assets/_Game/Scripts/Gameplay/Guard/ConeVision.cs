@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConeVision : GameUnit
+public class ConeVision : PoolUnit
 {
     [SerializeReference] MeshFilter meshFilter;
     public float VisionRange;

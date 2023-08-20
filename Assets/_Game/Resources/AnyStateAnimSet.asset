@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5ad14e80588364089cea0f921b53fe, type: 3}
+  m_Name: AnyStateAnimSet
+  m_EditorClassIdentifier: 
+  controller: {fileID: 9100000, guid: 6de5974d4fecca34e871200f794abf42, type: 2}
+  animSet:
+  - trigger: idle
+    duration: 4
+  - trigger: walk
+    duration: 0.90000004
+  - trigger: run
+    duration: 0.73333335
+  - trigger: attack
+    duration: 2
+  - trigger: victory
+    duration: 3.5333335
+  - trigger: die
+    duration: 2.1666667
+  EnumValues: 'idle = 0,
+
+    walk = 1,
+
+    run = 2,
+
+    attack = 3,
+
+    victory
+    = 4,
+
+    die = 5'
+  ConstantValues: 'public const string IDLE = "idle";
+
+    public const string WALK
+    = "walk";
+
+    public const string RUN = "run";
+
+    public const string ATTACK
+    = "attack";
+
+    public const string VICTORY = "victory";
+
+    public const string
+    DIE = "die";
+
+
+    public const float IDLE_DURATION = 4f;
+
+    public const float
+    WALK_DURATION = 0.9f;
+
+    public const float RUN_DURATION = 0.733f;
+
+    public
+    const float ATTACK_DURATION = 2f;
+
+    public const float VICTORY_DURATION =
+    3.533f;
+
+    public const float DIE_DURATION = 2.167f;'

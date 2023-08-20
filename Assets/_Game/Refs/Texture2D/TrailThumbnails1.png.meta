@@ -1,0 +1,851 @@
+fileFormatVersion: 2
+guid: ecdf1f3a01f0c03438aad037b2fbdc1b
+timeCreated: 1691749595
+licenseType: Free
+TextureImporter:
+  serializedVersion: 11
+  objectHideFlags: 0
+  correspondingSourceObject: {fileID: 0}
+  prefabInstance: {fileID: 0}
+  prefabAsset: {fileID: 0}
+  name:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: TrailThumbnails_Fart
+  - first:
+      213: 21300002
+    second: TrailThumbnails_Bubbles
+  - first:
+      213: 21300004
+    second: TrailThumbnails_CherryBlossom
+  - first:
+      213: 21300006
+    second: TrailThumbnails_Rainbow
+  - first:
+      213: 21300008
+    second: TrailThumbnails_MagicRibbon_Emerald
+  - first:
+      213: 21300010
+    second: TrailThumbnails_Daisy
+  - first:
+      213: 21300012
+    second: TrailThumbnails_SoapBubbles
+  - first:
+      213: 21300014
+    second: TrailThumbnails_Candy
+  - first:
+      213: 21300016
+    second: TrailThumbnails_Poop
+  - first:
+      213: 21300018
+    second: TrailThumbnails_MagicRibbon_Ruby
+  - first:
+      213: 21300020
+    second: TrailThumbnails_SnowFlakes
+  - first:
+      213: 21300022
+    second: TrailThumbnails_PinkClouds
+  - first:
+      213: 21300024
+    second: TrailThumbnails_Bats
+  - first:
+      213: 21300026
+    second: TrailThumbnails_MagicRibbon_Gold
+  - first:
+      213: 21300028
+    second: TrailThumbnails_Stars
+  - first:
+      213: 21300030
+    second: TrailThumbnails_Lightning
+  - first:
+      213: 21300032
+    second: TrailThumbnails_Heart
+  - first:
+      213: 21300034
+    second: TrailThumbnails_RainbowStars
+  - first:
+      213: 21300036
+    second: TrailThumbnails_Feather
+  externalObjects: {}
+  usedFileIDs: []
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 47
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 0
+  flipbookColumns: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TrailThumbnails_Fart
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e803fa0e5a21483f9cf02bc1cf96c388
+      internalID: 21300000
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_Bubbles
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b56d2497b8f4874a8665f5b08d9358e
+      internalID: 21300002
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_CherryBlossom
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bf4c93dcdab476eb81a33839da8a1a9
+      internalID: 21300004
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_Rainbow
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8588ec23c9ca425ca75b7f3426dab5cf
+      internalID: 21300006
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_MagicRibbon_Emerald
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d54897a646f41be8a1a3d467e1109e4
+      internalID: 21300008
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_Daisy
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37a06376d4d04fcfb0905b6a9393b28a
+      internalID: 21300010
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_SoapBubbles
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e44b6beb2eb546e6ba11c291ae016ca1
+      internalID: 21300012
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_Candy
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55bcdb133a3947b9b9c43f8a315a5384
+      internalID: 21300014
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_Poop
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9439489a43994e88a4bd69d88ef41ca6
+      internalID: 21300016
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_MagicRibbon_Ruby
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7de88be94d94e14ae52cca287f76339
+      internalID: 21300018
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_SnowFlakes
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4af720253c7493a8139e807140b4d23
+      internalID: 21300020
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_PinkClouds
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a699e7df3f44daab08d31f681322393
+      internalID: 21300022
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_Bats
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38d4408e8be647979f75c17fd8996a5e
+      internalID: 21300024
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_MagicRibbon_Gold
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b073ccd02c8f461b802f420225534ba3
+      internalID: 21300026
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_Stars
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66184cd8414141b192342f01859b6956
+      internalID: 21300028
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_Lightning
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f5624e17efd4314a614448d6863ddb3
+      internalID: 21300030
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_Heart
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d74c0dfa29b44d85a7bb771d101850bd
+      internalID: 21300032
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_RainbowStars
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f78dfc2437d84cfaad41def7ace248bb
+      internalID: 21300034
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrailThumbnails_Feather
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c46e62edf4648c4a04e33312c5365d0
+      internalID: 21300036
+      vertices:
+      - {x: 0, y: 256}
+      - {x: 256, y: 256}
+      - {x: 0, y: 0}
+      - {x: 256, y: 0}
+      indices:
+      - 0
+      - 1
+      - 2
+      - 2
+      - 1
+      - 3
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID:
+    internalID: 0
+    vertices: []
+    indices: []
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable: {}
+  spritePackingTag:
+  output:
+    textureImportInstructions:
+      compressedFormat: 0
+      uncompressedFormat: 0
+      desiredFormat: 0
+      usageMode: 0
+      colorSpace: 0
+      androidETC2FallbackFormat: 0
+      width: 0
+      height: 0
+      depth: 0
+      cubeIntermediateSize: 0
+      cubeMode: 0
+      cubeLayout: 0
+      compressionQuality: 0
+      androidETC2FallbackDownscale: 0
+      vtOnly: 0
+    sourceTextureInformation:
+      width: 0
+      height: 0
+      doesTextureContainAlpha: 0
+      sourceWasHDR: 0
+    importInspectorWarnings:
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData:
+  assetBundleName:
+  assetBundleVariant:

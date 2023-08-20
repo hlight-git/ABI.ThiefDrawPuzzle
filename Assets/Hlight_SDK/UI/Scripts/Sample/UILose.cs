@@ -10,6 +10,6 @@ public class UILose : UICanvas
     public void MainMenuButton()
     {
         Close(0);
-        GameManager.Ins.OpenMainMenu();
+        GameManager.Ins.ChangeState(GameState.Gameplay);
     }
 }

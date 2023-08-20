@@ -37,31 +37,31 @@ public static class SimplePool
         //object is can collect back to pool
         bool m_collect;
         //list object in pool
-        Queue<GameUnit> m_inactive;
+        Queue<PoolUnit> m_inactive;
         //collect obj active ingame
-        HashSet<GameUnit> m_active;
+        HashSet<PoolUnit> m_active;
         // The prefab that we are pooling
-        GameUnit m_prefab;
+        PoolUnit m_prefab;
 
         public bool IsCollect { get => m_collect; }
-        public HashSet<GameUnit> Active => m_active;
+        public HashSet<PoolUnit> Active => m_active;
         public int Count => m_inactive.Count + m_active.Count;
         public Transform Root => m_sRoot;
 
         // Constructor
-        public Pool(GameUnit prefab, int initialQty, Transform parent, bool collect)
+        public Pool(PoolUnit prefab, int initialQty, Transform parent, bool collect)
         {
-            m_inactive = new Queue<GameUnit>(initialQty);
+            m_inactive = new Queue<PoolUnit>(initialQty);
             m_sRoot = parent;
             this.m_prefab = prefab;
             m_collect = collect;
-            if (m_collect) m_active = new HashSet<GameUnit>();
+            if (m_collect) m_active = new HashSet<PoolUnit>();
         }
 
         // Spawn an object from our pool with position and rotation
-        public GameUnit Spawn(Vector3 pos, Quaternion rot)
+        public PoolUnit Spawn(Vector3 pos, Quaternion rot)
         {
-            GameUnit obj = Spawn();
+            PoolUnit obj = Spawn();
 
             obj.TF.SetPositionAndRotation(pos, rot);
 
@@ -69,12 +69,12 @@ public static class SimplePool
         }
 
         //spawn gameunit
-        public GameUnit Spawn()
+        public PoolUnit Spawn()
         {
-            GameUnit obj;
+            PoolUnit obj;
             if (m_inactive.Count == 0)
             {
-                obj = (GameUnit)GameObject.Instantiate(m_prefab, m_sRoot);
+                obj = GameObject.Instantiate(m_prefab, m_sRoot);
             }
             else
             {
@@ -95,7 +95,7 @@ public static class SimplePool
         }
 
         // Return an object to the inactive pool.
-        public void Despawn(GameUnit obj)
+        public void Despawn(PoolUnit obj)
         {
             if (obj != null /*&& !inactive.Contains(obj)*/)
             {
@@ -117,7 +117,7 @@ public static class SimplePool
         {
             while (m_inactive.Count > 0)
             {
-                GameUnit go = m_inactive.Dequeue();
+                PoolUnit go = m_inactive.Dequeue();
                 GameObject.DestroyImmediate(go);
             }
             m_inactive.Clear();
@@ -132,7 +132,7 @@ public static class SimplePool
             //}
 
 
-            HashSet<GameUnit> units = new HashSet<GameUnit>(m_active);
+            HashSet<PoolUnit> units = new HashSet<PoolUnit>(m_active);
             foreach (var item in units)
             {
                 Despawn(item);
@@ -143,7 +143,7 @@ public static class SimplePool
     public const int DEFAULT_POOL_SIZE = 3;
 
     //dict for faster search from pool type to prefab
-    static Dictionary<PoolType, GameUnit> poolTypes = new Dictionary<PoolType, GameUnit>();
+    static Dictionary<PoolType, PoolUnit> poolTypes = new Dictionary<PoolType, PoolUnit>();
 
     //save member that is child transform other object
     static HashSet<int> memberInParent = new HashSet<int>();
@@ -168,7 +168,7 @@ public static class SimplePool
     static Dictionary<PoolType, Pool> poolInstance = new Dictionary<PoolType, Pool>();
 
     // preload object and pool
-    static public void Preload(GameUnit prefab, int qty = 1, Transform parent = null, bool collect = false)
+    static public void Preload(PoolUnit prefab, int qty = 1, Transform parent = null, bool collect = false)
     {
         if (!poolTypes.ContainsKey(prefab.poolType))
         {
@@ -184,7 +184,7 @@ public static class SimplePool
         InitPool(prefab, qty, parent, collect);
 
         // Make an array to grab the objects we're about to pre-spawn.
-        GameUnit[] obs = new GameUnit[qty];
+        PoolUnit[] obs = new PoolUnit[qty];
         for (int i = 0; i < qty; i++)
         {
             obs[i] = Spawn(prefab);
@@ -198,26 +198,26 @@ public static class SimplePool
     }
 
     // init pool
-    static void InitPool(GameUnit prefab = null, int qty = DEFAULT_POOL_SIZE, Transform parent = null, bool collect = false)
+    static void InitPool(PoolUnit prefab = null, int qty = DEFAULT_POOL_SIZE, Transform parent = null, bool collect = false)
     {
         if (prefab != null && !IsHasPool(prefab))
         {
             poolInstance.Add(prefab.poolType, new Pool(prefab, qty, parent, collect));
         }
     }
-    static private bool IsHasPool(GameUnit obj)
+    static private bool IsHasPool(PoolUnit obj)
     {
         return poolInstance.ContainsKey(obj.poolType);
     }
-    static private Pool GetPool(GameUnit obj)
+    static private Pool GetPool(PoolUnit obj)
     {
         return poolInstance[obj.poolType];
     }
-    public static GameUnit GetPrefabByType(PoolType poolType)
+    public static PoolUnit GetPrefabByType(PoolType poolType)
     {
         if (!poolTypes.ContainsKey(poolType) || poolTypes[poolType] == null)
         {
-            GameUnit[] resources = Resources.LoadAll<GameUnit>("Pool");
+            PoolUnit[] resources = Resources.LoadAll<PoolUnit>("Pool");
 
             for (int i = 0; i < resources.Length; i++)
             {
@@ -230,11 +230,11 @@ public static class SimplePool
 
     #region Get List object ACTIVE
     // get all member is active in game
-    public static HashSet<GameUnit> GetAllUnitIsActive(GameUnit obj)
+    public static HashSet<PoolUnit> GetAllUnitIsActive(PoolUnit obj)
     {
-        return IsHasPool(obj) ? GetPool(obj).Active : new HashSet<GameUnit>();
+        return IsHasPool(obj) ? GetPool(obj).Active : new HashSet<PoolUnit>();
     }
-    public static HashSet<GameUnit> GetAllUnitIsActive(PoolType poolType)
+    public static HashSet<PoolUnit> GetAllUnitIsActive(PoolType poolType)
     {
         return GetAllUnitIsActive(GetPrefabByType(poolType));
     }  
@@ -243,30 +243,30 @@ public static class SimplePool
 
     #region Spawn
     // Spawn Unit to use
-    static public T Spawn<T>(PoolType poolType, Vector3 pos, Quaternion rot) where T : GameUnit
+    static public T Spawn<T>(PoolType poolType, Vector3 pos, Quaternion rot) where T : PoolUnit
     {
         return Spawn(GetPrefabByType(poolType), pos, rot) as T;
     }
-    static public T Spawn<T>(PoolType poolType) where T : GameUnit
+    static public T Spawn<T>(PoolType poolType) where T : PoolUnit
     {
         return Spawn<T>(GetPrefabByType(poolType));
     }
-    static public T Spawn<T>(GameUnit obj, Vector3 pos, Quaternion rot) where T : GameUnit
+    static public T Spawn<T>(PoolUnit obj, Vector3 pos, Quaternion rot) where T : PoolUnit
     {
         return Spawn(obj, pos, rot) as T;
     }
-    static public T Spawn<T>(GameUnit obj) where T : GameUnit
+    static public T Spawn<T>(PoolUnit obj) where T : PoolUnit
     {
         return Spawn(obj) as T;
     }
 
     // spawn gameunit with transform parent
-    static public T Spawn<T>(GameUnit obj, Transform parent) where T : GameUnit
+    static public T Spawn<T>(PoolUnit obj, Transform parent) where T : PoolUnit
     {
         return Spawn<T>(obj, obj.TF.localPosition, obj.TF.localRotation, parent);
     }
 
-    static public T Spawn<T>(GameUnit obj, Vector3 localPoint, Quaternion localRot, Transform parent) where T : GameUnit
+    static public T Spawn<T>(PoolUnit obj, Vector3 localPoint, Quaternion localRot, Transform parent) where T : PoolUnit
     {
         T unit = Spawn<T>(obj);
         unit.TF.SetParent(parent);
@@ -277,16 +277,16 @@ public static class SimplePool
         return unit;
     }
 
-    static public T Spawn<T> (PoolType poolType, Vector3 localPoint, Quaternion localRot, Transform parent) where T : GameUnit
+    static public T Spawn<T> (PoolType poolType, Vector3 localPoint, Quaternion localRot, Transform parent) where T : PoolUnit
     {
         return Spawn<T>(GetPrefabByType(poolType), localPoint, localRot, parent);
     }
-     static public T Spawn<T> (PoolType poolType, Transform parent) where T : GameUnit
+     static public T Spawn<T> (PoolType poolType, Transform parent) where T : PoolUnit
     {
         return Spawn<T>(GetPrefabByType(poolType), parent);
     }
 
-    static public GameUnit Spawn(GameUnit obj, Vector3 pos, Quaternion rot)
+    static public PoolUnit Spawn(PoolUnit obj, Vector3 pos, Quaternion rot)
     {
         if (!IsHasPool(obj))
         {
@@ -297,7 +297,7 @@ public static class SimplePool
 
         return GetPool(obj).Spawn(pos, rot);
     }
-    static public GameUnit Spawn(GameUnit obj)
+    static public PoolUnit Spawn(PoolUnit obj)
     {
         if (!IsHasPool(obj))
         {
@@ -312,7 +312,7 @@ public static class SimplePool
 
     #region Despawn
     //take gameunit to pool
-    static public void Despawn(GameUnit obj)
+    static public void Despawn(PoolUnit obj)
     {
         if (obj.gameObject.activeSelf)
         {
@@ -330,7 +330,7 @@ public static class SimplePool
 
     #region Release
     //destroy pool
-    static public void Release(GameUnit obj)
+    static public void Release(PoolUnit obj)
     {
         if (IsHasPool(obj))
         {
@@ -354,7 +354,7 @@ public static class SimplePool
 
     #region Collect
     //collect all pool member comeback to pool
-    static public void Collect(GameUnit obj)
+    static public void Collect(PoolUnit obj)
     {
         if (IsHasPool(obj)) GetPool(obj).Collect();
     }
